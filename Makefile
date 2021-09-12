@@ -18,8 +18,8 @@ LDLIBS   +=
 
 .cpp:;	${CXX} ${CXXFLAGS} ${LDFLAGS} $< -o $@ ${LDLIBS}
 
-all: tc0001
+all: $(basename $(wildcard tc????.cpp))
 
-tc0001: Node.hpp BST.hpp tc0001.cpp
+tc%: tc%.cpp Node.hpp BST.hpp
 
 clean:;	rm -fr core *.o tc???? tc????.exe

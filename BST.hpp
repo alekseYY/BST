@@ -51,10 +51,9 @@ struct BST
   {
     if (this != &T)
     {
-      const auto ptr = _rootPtr;
-      _rootPtr = T._rootPtr;
+      std::swap(_rootPtr, T._rootPtr);
+      Clear(T._rootPtr);
       T._rootPtr = nullptr;
-      Clear(ptr);
     }
     return *this;
   }
