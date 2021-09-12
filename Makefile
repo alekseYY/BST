@@ -20,6 +20,6 @@ LDLIBS   +=
 
 all: $(basename $(wildcard tc????.cpp))
 
-tc%: tc%.cpp Node.hpp BST.hpp
+tc%: tc%.cpp BST.hpp
 
 clean:;	rm -fr core *.o tc???? tc????.exe
