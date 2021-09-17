@@ -1,7 +1,7 @@
 /*
-  tc0002.cpp
+  tc0003.cpp
   ------------------------------------------------------------------------------
-  Binary Search Tree Test #2 - Copy Constructor and Assignment
+  Binary Search Tree Test #2 - Move Constructor and Assignment
   ------------------------------------------------------------------------------
   Ver  1.00 Initial version                                         September 21
   ------------------------------------------------------------------------------
@@ -17,26 +17,20 @@ using std::endl;
 
 int main()
 {
-  // ------ copy constructor
+  // ------ move constructor
   BST<int> t1;
   t1.insert(50);
   t1.insert(40);
   t1.insert(60);
-  cout << "Before copy constructor 'BST<int> t2(t1)':" << endl;
+  cout << "Before move constructor 'BST<int> t2(std::move(t1))':" << endl;
   cout << "t1: " << t1 << endl;
-  BST<int> t2(t1);
-  cout << "After  copy constructor 'BST<int> t2(t1)':" << endl;
+  BST<int> t2(std::move(t1));
+  cout << "After  move constructor 'BST<int> t2(std::move(t1))':" << endl;
   cout << "t1: " << t1 << endl;
   cout << "t2: " << t2 << endl;
-  // ------ copy assignment
-  BST<int> t3;
-  t3.insert(150);
-  t3.insert(100);
-  t3.insert(125);
-  cout << "Before copy assignment 't1 = t3':" << endl;
-  cout << "t3: " << t3 << endl;
-  t1 = t3;
-  cout << "After  copy assignment 't1 = t3':" << endl;
+  // ------ move assignment
+  t1 = std::move(t2);
+  cout << "After  move assignment 't1 = std::move(t2)':" << endl;
   cout << "t1: " << t1 << endl;
-  cout << "t3: " << t3 << endl;
+  cout << "t2: " << t2 << endl;
 }
